@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Your Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="menu">  
+    <div class="hamburger-menu">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <nav class="sidebar-nav">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#contact">Contacts</a></li>
+            <li><a href="#work">Let's Work</a></li>
+        </ul>
+    </nav>
+</div>
+    <div class="sidebar">
+
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#contact">Contacts</a></li>
+                <li><a href="#work">Let's Work</a></li>
+            </ul>
+        </nav>
+
+    </div>
+
+    <div class="content">
+
+        <section class="about-me" id="home">
+            <div class="container">
+                <h2>Welcome to <span>Jm's</span> Portfolio <br>
+                    <span1>Programmer | Back End/Front End</span1>
+                </h2>
+                <p>Hello, I'm <span>Jm</span>!, I specialize in crafting engaging user experiences through
+                    front-end development. Explore my portfolio to see some of my recent projects.</p>
+                <a href="#portfolio" class="btn btn1">Let's Work</a>
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <div class="container">
+                <h2>Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill">
+                        <div class="skill-icon">C+</div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-icon">Java</div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-icon">Html</div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-icon">CSS</div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-icon">Python</div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-icon">Illustrator</div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-icon">Communication</div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-icon">Android Studio</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="myworks" id="work">
+            <div class="container">
+                <h2>My Works</h2>
+                <div class="work-cards">
+                    <div class="work-info">
+                        <h3>Application</h3>
+                        <p>Description of Project 1</p>
+                    </div>
+                    <div class="work-card">
+                        <img src="asset/axl.png" alt="Project 1 Image">
+                    </div>
+                    <div class="work-info">
+                        <h3>Project Name 2</h3>
+                        <p>Description of Project 2</p>
+                    </div>
+                    <div class="work-card">
+                        <img src="asset/case.png" alt="Project 2 Image">
+                    </div>
+                    <!-- Add more work info and cards as needed -->
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+        <footer>
+            <div class="container">
+                <p>&copy; 2024 Your Name. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const hamburgerMenu = document.querySelector(".hamburger-menu");
+            const sidebar = document.querySelector(".menu");
+            const sidebarNav = document.querySelector(".sidebar-nav");
+
+            hamburgerMenu.addEventListener("click", function () {
+                sidebar.classList.toggle("active");
+                sidebarNav.classList.toggle("active");
+            });
+        });
+
+
+    </script>
+</body>
+
+</html>

@@ -30,6 +30,11 @@ body::-webkit-scrollbar {
   justify-content: center; /* Align items vertically in the center */
   align-items: flex-start; /* Align items horizontally to the left */
   z-index: 1;
+  transition: transform 0.3s ease; /* Add a transition effect for the transform property */
+}
+
+.sidebar.transitioning {
+  transition: none; /* Remove transition during the transition */
 }
 
 .sidebar::-webkit-scrollbar {
@@ -271,6 +276,23 @@ footer {
   color: #d4d4d4;
 }
 
+.hamburger-menu {
+  display: none; /* Hide by default */
+  cursor: pointer;
+  padding: 20px;
+  transition: transform 0.3s ease; /* Add transition effect */
+}
+
+.hamburger-menu div {
+  width: 25px;
+  height: 3px;
+  background-color: #f5f5f5;
+  margin: 2px;
+}
+
+.sidebar-nav {
+  display: none;
+}
 /* Media queries for responsiveness */
 @media screen and (max-width: 1195px) {
   /* Basic styles */
@@ -291,55 +313,6 @@ footer {
 
   body::-webkit-scrollbar {
     width: 0;
-  }
-
-  .sidebar {
-    width: 200px;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    overflow: hidden; /* Hide scrollbar in the sidebar */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Align items vertically in the center */
-    align-items: flex-start; /* Align items horizontally to the left */
-    z-index: 1;
-  }
-
-  .sidebar::-webkit-scrollbar {
-    width: 0;
-  }
-
-  .sidebar nav ul {
-    list-style-type: none;
-    padding: 30px;
-    margin: 0;
-  }
-
-  .sidebar nav ul li {
-    display: flex;
-    align-items: center; /* Vertically center items */
-    margin-bottom: 100px; /* Reduced margin between tabs */
-  }
-
-  .sidebar nav ul li a {
-    font-family: "Poppins", sans-serif;
-    font-size: 1rem;
-    font-weight: 400;
-    color: #000000;
-    text-decoration: none;
-    display: block;
-    transition: color 0.3s ease;
-    transform: rotate(90deg); /* Rotate the tabs */
-    margin-left: -30px; /* Adjusted negative margin for alignment */
-    transform-origin: bottom left; /* Adjust transform origin */
-    white-space: nowrap; /* Prevent text wrapping */
-    padding: 10px; /* Add padding for better readability */
-  }
-
-  .sidebar nav ul li a:hover {
-    color: #ffa500;
   }
 
   .content {
@@ -545,6 +518,99 @@ footer {
     font-size: 15px;
     color: #d4d4d4;
   }
+
+  .hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    transition: transform 0.3s ease; /* Add transition effect */
+    position: fixed; /* Fixed position */
+    top: 20px; /* Distance from the top */
+    left: 0; /* Distance from the left */
+    z-index: 2; /* Ensure it's above other elements */
+  }
+
+  .hamburger-menu div {
+    width: 25px;
+    height: 3px;
+    background-color: #f3f3f3;
+    margin: 3px;
+    transition: transform 0.3s ease; /* Add transition effect */
+  }
+
+  /* Hide the navigation by default */
+  .sidebar-nav {
+    display: flex;
+    position: absolute;
+    top: 90px;
+    left: 20px;
+    background-color: #d4d4d4;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out; /* Updated transition for fade-in effect */
+  }
+
+  .sidebar-nav.active {
+    display: block;
+    max-height: 200px;
+    opacity: 1; /* Opacity set to 1 for fade-in effect */
+  }
+
+  .sidebar-nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .sidebar-nav ul li {
+    margin-bottom: 10px;
+  }
+
+  .sidebar-nav ul li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    display: block;
+    padding: 5px 0;
+    transition: all 0.3s ease;
+  }
+
+  .sidebar-nav ul li a:hover {
+    background-color: #f0f0f0;
+  }
+
+  .sidebar nav {
+    display: none; /* Hide the navigation tabs on small screens */
+  }
+
+  .sidebar.active .hamburger-menu div:nth-child(1) {
+    transform: rotate(-45deg) translate(-2px, 7px);
+  }
+
+  .sidebar.active .hamburger-menu div:nth-child(2) {
+    opacity: 0;
+  }
+
+  .sidebar.active .hamburger-menu div:nth-child(3) {
+    transform: rotate(45deg) translate(-2px, -7px);
+  }
+
+  /* Scatter effect on hover */
+  .hamburger-menu:hover div:nth-child(1) {
+    transform: translateY(-10px);
+  }
+
+  .hamburger-menu:hover div:nth-child(2) {
+    transform: rotate(180deg);
+  }
+
+  .hamburger-menu:hover div:nth-child(3) {
+    transform: translateY(10px);
+  }
 }
 
 @media screen and (max-width: 990px) {
@@ -566,55 +632,6 @@ footer {
 
   body::-webkit-scrollbar {
     width: 0;
-  }
-
-  .sidebar {
-    width: 200px;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    overflow: hidden; /* Hide scrollbar in the sidebar */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Align items vertically in the center */
-    align-items: flex-start; /* Align items horizontally to the left */
-    z-index: 1;
-  }
-
-  .sidebar::-webkit-scrollbar {
-    width: 0;
-  }
-
-  .sidebar nav ul {
-    list-style-type: none;
-    padding: 30px;
-    margin: 0;
-  }
-
-  .sidebar nav ul li {
-    display: flex;
-    align-items: center; /* Vertically center items */
-    margin-bottom: 100px; /* Reduced margin between tabs */
-  }
-
-  .sidebar nav ul li a {
-    font-family: "Poppins", sans-serif;
-    font-size: 1rem;
-    font-weight: 400;
-    color: #000000;
-    text-decoration: none;
-    display: block;
-    transition: color 0.3s ease;
-    transform: rotate(90deg); /* Rotate the tabs */
-    margin-left: -30px; /* Adjusted negative margin for alignment */
-    transform-origin: bottom left; /* Adjust transform origin */
-    white-space: nowrap; /* Prevent text wrapping */
-    padding: 10px; /* Add padding for better readability */
-  }
-
-  .sidebar nav ul li a:hover {
-    color: #ffa500;
   }
 
   .content {
@@ -660,17 +677,18 @@ footer {
   .work-info h3 {
     color: #d4d4d4;
     margin-top: 0;
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 
   .work-info p {
     margin-bottom: 10px;
     color: #d4d4d4;
+    font-size: 0.8rem;
   }
 
   .work-card {
-    width: 870px;
-    background-color: #3097e1;
+    width: 270px;
+    background-color: #c6c6c6;
     border-radius: 20px;
     padding: 50px 50px 0 50px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -698,18 +716,18 @@ footer {
   .contact h2 {
     font-weight: bold;
     margin-bottom: 30px;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     color: #f0f0f0;
     line-height: 1.1;
-    text-align: left;
+    text-align: center;
   }
   .myworks h2 {
     font-weight: bold;
     margin-bottom: 30px;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     color: #f0f0f0;
     line-height: 1.1;
-    text-align: left;
+    text-align: center;
   }
 
   .about-me h2 span {
@@ -731,20 +749,21 @@ footer {
     text-align: left;
   }
 
+  /* Original styles for button */
   .btn {
     display: inline-block;
-    padding: 15px 40px;
+    padding: 5px 20px;
     border: 2px solid #ffd60a;
     border-radius: 100px;
     color: #d4d4d4;
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     font-weight: 500;
     cursor: pointer;
     transition: 0.8s;
     overflow: hidden;
     text-decoration: none;
     position: relative;
-    margin-left: -285px;
+    margin-left: 0; /* Adjusted margin for positioning */
   }
 
   .btn1 {
@@ -758,9 +777,9 @@ footer {
   .btn::before {
     content: "";
     position: absolute;
-    left: 0;
-    width: 100%;
-    height: 0;
+    left: -50px; /* Adjusted position to cover the entire button */
+    width: 200%; /* Adjusted width to cover the entire button */
+    height: 200%; /* Adjusted height to cover the entire button */
     background: #ffd60a;
     z-index: -1;
     transition: 0.8s;
@@ -789,19 +808,14 @@ footer {
 
   /* Add this CSS to your existing styles */
 
-  .skills {
-    text-align: center;
-    margin-top: 100px;
-  }
-
   .skills h2 {
     margin-bottom: 40px;
   }
 
   .skills-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columns */
-    gap: 50px;
+    grid-template-columns: repeat(2, 1fr); /* 4 columns */
+    gap: 20px;
   }
 
   .skill {
@@ -811,14 +825,106 @@ footer {
   }
 
   .skill-icon {
-    width: 200px;
-    height: 50px;
+    width: 100px;
+    height: 20px;
     border: 2px solid #ffd60a;
     border-radius: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 15px;
+    font-size: 0.6rem;
     color: #d4d4d4;
+  }
+
+  .hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    transition: transform 0.3s ease; /* Add transition effect */
+    position: fixed; /* Fixed position */
+    top: 20px; /* Distance from the top */
+    left: 0; /* Distance from the left */
+    z-index: 2; /* Ensure it's above other elements */
+  }
+
+  .hamburger-menu div {
+    width: 25px;
+    height: 3px;
+    background-color: #f3f3f3;
+    margin: 3px;
+    transition: transform 0.3s ease; /* Add transition effect */
+  }
+  /* Hide the navigation by default */
+  .sidebar-nav {
+    display: flex;
+    position: fixed;
+    top: 90px;
+    left: 20px;
+    background-color: #d4d4d4;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out; /* Updated transition for fade-in effect */
+  }
+
+  .sidebar-nav.active {
+    display: block;
+    max-height: 200px;
+    opacity: 1; /* Opacity set to 1 for fade-in effect */
+  }
+
+  .sidebar-nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .sidebar-nav ul li {
+    margin-bottom: 10px;
+  }
+
+  .sidebar-nav ul li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    display: block;
+    padding: 5px 0;
+    transition: all 0.3s ease;
+  }
+
+  .sidebar-nav ul li a:hover {
+    background-color: #f0f0f0;
+  }
+
+  .sidebar nav {
+    display: none; /* Hide the navigation tabs on small screens */
+  }
+
+  .menu.active .hamburger-menu div:nth-child(1) {
+    transform: rotate(-45deg) translate(-2px, 7px);
+  }
+
+  .menu.active .hamburger-menu div:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu.active .hamburger-menu div:nth-child(3) {
+    transform: rotate(45deg) translate(-2px, -7px);
+  }
+
+  /* Scatter effect on hover */
+  .hamburger-menu:hover div:nth-child(1) {
+    transform: translateY(-10px);
+  }
+
+  .hamburger-menu:hover div:nth-child(2) {
+    transform: rotate(180deg);
+  }
+
+  .hamburger-menu:hover div:nth-child(3) {
+    transform: translateY(10px);
   }
 }
