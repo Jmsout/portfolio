@@ -1,0 +1,824 @@
+/* Basic styles */
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url("asset/bgx.png"); /* Adjust the path to your background image */
+  background-size: 100% auto;
+  background-position: center;
+  background-attachment: fixed; /* Ensure the background image remains fixed within the viewport */
+  color: #000000;
+  display: flex;
+  min-height: 100vh;
+
+  /* Hide scrollbar */
+}
+
+body::-webkit-scrollbar {
+  width: 0;
+}
+
+.sidebar {
+  width: 200px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden; /* Hide scrollbar in the sidebar */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Align items vertically in the center */
+  align-items: flex-start; /* Align items horizontally to the left */
+  z-index: 1;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 0;
+}
+
+.sidebar nav ul {
+  list-style-type: none;
+  padding: 30px;
+  margin: 0;
+}
+
+.sidebar nav ul li {
+  display: flex;
+  align-items: center; /* Vertically center items */
+  margin-bottom: 100px; /* Reduced margin between tabs */
+}
+
+.sidebar nav ul li a {
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #000000;
+  text-decoration: none;
+  display: block;
+  transition: color 0.3s ease;
+  transform: rotate(90deg); /* Rotate the tabs */
+  margin-left: -30px; /* Adjusted negative margin for alignment */
+  transform-origin: bottom left; /* Adjust transform origin */
+  white-space: nowrap; /* Prevent text wrapping */
+  padding: 10px; /* Add padding for better readability */
+}
+
+.sidebar nav ul li a:hover {
+  color: #ffa500;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+
+  overflow-y: auto; /* Enable scrollbar for the content */
+}
+
+.container {
+  width: 100%; /* Adjust the width as needed */
+  max-width: 800px;
+  padding: 0 20px;
+  margin: 0 auto; /* Center the container horizontally */
+}
+
+.about-me,
+.contact {
+  padding: 0;
+  text-align: center;
+  margin-top: 100px; /* Adjusted margin to move "About Me" section below header */
+  margin-bottom: 50vh;
+}
+
+.myworks {
+  padding: 0;
+  margin-top: 100px; /* Adjusted margin to move "About Me" section below header */
+  margin-bottom: 100vh;
+}
+
+.work-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Adjust the gap between cards */
+}
+
+.work-info {
+  text-align: left;
+  margin-bottom: 20px; /* Adjust as needed */
+}
+
+.work-info h3 {
+  color: #d4d4d4;
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+.work-info p {
+  margin-bottom: 10px;
+  color: #d4d4d4;
+}
+
+.work-card {
+  width: 870px;
+  background-color: #3097e1;
+  border-radius: 20px;
+  padding: 50px 50px 0 50px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 300px;
+}
+
+.work-card img {
+  width: 100%;
+  height: auto;
+  margin-bottom: -7px;
+  border-radius: 10px 10px 0 0;
+}
+
+.about-me h2 {
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  margin-bottom: 30px;
+  font-size: 4.5rem;
+  color: #f0f0f0;
+  line-height: 1.1;
+  text-align: left;
+}
+
+.contact h2 {
+  font-weight: bold;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  color: #f0f0f0;
+  line-height: 1.1;
+  text-align: left;
+}
+.myworks h2 {
+  font-weight: bold;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  color: #f0f0f0;
+  line-height: 1.1;
+  text-align: left;
+}
+
+.about-me h2 span {
+  color: #ffd60a;
+}
+.about-me h2 span1 {
+  color: #f0f0f0;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.about-me p {
+  margin-bottom: 40px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.2rem;
+  color: #d4d4d4;
+  text-align: left;
+}
+
+.btn {
+  display: inline-block;
+  padding: 15px 40px;
+  border: 2px solid #ffd60a;
+  border-radius: 100px;
+  color: #d4d4d4;
+  font-size: 1.2rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.8s;
+  overflow: hidden;
+  text-decoration: none;
+  position: relative;
+  margin-left: -615px;
+}
+
+.btn1 {
+  color: #181818;
+}
+
+.btn1:hover {
+  color: #ffffff;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background: #ffd60a;
+  z-index: -1;
+  transition: 0.8s;
+}
+
+.btn1::before {
+  top: 0;
+  border-radius: 0 0 50% 50%;
+}
+
+.btn1::before {
+  height: 180%;
+}
+
+.btn1:hover::before {
+  height: 0%;
+}
+
+footer {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 1rem;
+}
+
+/* Add this CSS to your existing styles */
+
+.skills {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.skills h2 {
+  margin-bottom: 40px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns */
+  gap: 50px;
+}
+
+.skill {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.skill-icon {
+  width: 200px;
+  height: 50px;
+  border: 2px solid #ffd60a;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  color: #d4d4d4;
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 1195px) {
+  /* Basic styles */
+  body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url("asset/bgx.png"); /* Adjust the path to your background image */
+    background-size: 100% auto;
+    background-position: center;
+    background-attachment: fixed; /* Ensure the background image remains fixed within the viewport */
+    color: #000000;
+    display: flex;
+    min-height: 100vh;
+
+    /* Hide scrollbar */
+  }
+
+  body::-webkit-scrollbar {
+    width: 0;
+  }
+
+  .sidebar {
+    width: 200px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden; /* Hide scrollbar in the sidebar */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Align items vertically in the center */
+    align-items: flex-start; /* Align items horizontally to the left */
+    z-index: 1;
+  }
+
+  .sidebar::-webkit-scrollbar {
+    width: 0;
+  }
+
+  .sidebar nav ul {
+    list-style-type: none;
+    padding: 30px;
+    margin: 0;
+  }
+
+  .sidebar nav ul li {
+    display: flex;
+    align-items: center; /* Vertically center items */
+    margin-bottom: 100px; /* Reduced margin between tabs */
+  }
+
+  .sidebar nav ul li a {
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #000000;
+    text-decoration: none;
+    display: block;
+    transition: color 0.3s ease;
+    transform: rotate(90deg); /* Rotate the tabs */
+    margin-left: -30px; /* Adjusted negative margin for alignment */
+    transform-origin: bottom left; /* Adjust transform origin */
+    white-space: nowrap; /* Prevent text wrapping */
+    padding: 10px; /* Add padding for better readability */
+  }
+
+  .sidebar nav ul li a:hover {
+    color: #ffa500;
+  }
+
+  .content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+
+    overflow-y: auto; /* Enable scrollbar for the content */
+  }
+
+  .container {
+    width: 100%; /* Adjust the width as needed */
+    max-width: 800px;
+    padding: 0 20px;
+    margin: 0 auto; /* Center the container horizontally */
+  }
+
+  .about-me,
+  .contact {
+    padding: 0;
+    text-align: center;
+    margin-top: 100px; /* Adjusted margin to move "About Me" section below header */
+    margin-bottom: 50vh;
+  }
+
+  .myworks {
+    padding: 0;
+    margin-top: 100px; /* Adjusted margin to move "About Me" section below header */
+    margin-bottom: 100vh;
+  }
+
+  .work-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Adjust the gap between cards */
+  }
+
+  .work-info {
+    text-align: left;
+    margin-bottom: 20px; /* Adjust as needed */
+  }
+
+  .work-info h3 {
+    color: #d4d4d4;
+    margin-top: 0;
+    font-size: 1.5rem;
+  }
+
+  .work-info p {
+    margin-bottom: 10px;
+    color: #d4d4d4;
+  }
+
+  .work-card {
+    width: 870px;
+    background-color: #3097e1;
+    border-radius: 20px;
+    padding: 50px 50px 0 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 300px;
+  }
+
+  .work-card img {
+    width: 100%;
+    height: auto;
+    margin-bottom: -7px;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .about-me h2 {
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    margin-bottom: 30px;
+    font-size: 4.5rem;
+    color: #f0f0f0;
+    line-height: 1.1;
+    text-align: left;
+  }
+
+  .contact h2 {
+    font-weight: bold;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    color: #f0f0f0;
+    line-height: 1.1;
+    text-align: left;
+  }
+  .myworks h2 {
+    font-weight: bold;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    color: #f0f0f0;
+    line-height: 1.1;
+    text-align: left;
+  }
+
+  .about-me h2 span {
+    color: #ffd60a;
+  }
+  .about-me h2 span1 {
+    color: #f0f0f0;
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
+
+  .about-me p {
+    margin-bottom: 40px;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.2rem;
+    color: #d4d4d4;
+    text-align: left;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 15px 40px;
+    border: 2px solid #ffd60a;
+    border-radius: 100px;
+    color: #d4d4d4;
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.8s;
+    overflow: hidden;
+    text-decoration: none;
+    position: relative;
+    margin-left: -615px;
+  }
+
+  .btn1 {
+    color: #181818;
+  }
+
+  .btn1:hover {
+    color: #ffffff;
+  }
+
+  .btn::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: #ffd60a;
+    z-index: -1;
+    transition: 0.8s;
+  }
+
+  .btn1::before {
+    top: 0;
+    border-radius: 0 0 50% 50%;
+  }
+
+  .btn1::before {
+    height: 180%;
+  }
+
+  .btn1:hover::before {
+    height: 0%;
+  }
+
+  footer {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 1rem;
+  }
+
+  /* Add this CSS to your existing styles */
+
+  .skills {
+    text-align: center;
+    margin-top: 100px;
+  }
+
+  .skills h2 {
+    margin-bottom: 40px;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    gap: 50px;
+  }
+
+  .skill {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .skill-icon {
+    width: 200px;
+    height: 50px;
+    border: 2px solid #ffd60a;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    color: #d4d4d4;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  /* Basic styles */
+  body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url("asset/bgx.png"); /* Adjust the path to your background image */
+    background-size: 100% auto;
+    background-position: center;
+    background-attachment: fixed; /* Ensure the background image remains fixed within the viewport */
+    color: #000000;
+    display: flex;
+    min-height: 100vh;
+
+    /* Hide scrollbar */
+  }
+
+  body::-webkit-scrollbar {
+    width: 0;
+  }
+
+  .sidebar {
+    width: 200px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden; /* Hide scrollbar in the sidebar */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Align items vertically in the center */
+    align-items: flex-start; /* Align items horizontally to the left */
+    z-index: 1;
+  }
+
+  .sidebar::-webkit-scrollbar {
+    width: 0;
+  }
+
+  .sidebar nav ul {
+    list-style-type: none;
+    padding: 30px;
+    margin: 0;
+  }
+
+  .sidebar nav ul li {
+    display: flex;
+    align-items: center; /* Vertically center items */
+    margin-bottom: 100px; /* Reduced margin between tabs */
+  }
+
+  .sidebar nav ul li a {
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #000000;
+    text-decoration: none;
+    display: block;
+    transition: color 0.3s ease;
+    transform: rotate(90deg); /* Rotate the tabs */
+    margin-left: -30px; /* Adjusted negative margin for alignment */
+    transform-origin: bottom left; /* Adjust transform origin */
+    white-space: nowrap; /* Prevent text wrapping */
+    padding: 10px; /* Add padding for better readability */
+  }
+
+  .sidebar nav ul li a:hover {
+    color: #ffa500;
+  }
+
+  .content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    overflow-y: auto; /* Enable scrollbar for the content */
+  }
+
+  .container {
+    width: 100%; /* Adjust the width as needed */
+    max-width: 800px;
+    padding: 0 20px;
+    margin: 0 auto; /* Center the container horizontally */
+  }
+
+  .about-me,
+  .contact {
+    padding: 0;
+    margin-top: 100px; /* Adjusted margin to move "About Me" section below header */
+    margin-bottom: 50vh;
+  }
+
+  .myworks {
+    padding: 0;
+    margin-top: 100px; /* Adjusted margin to move "About Me" section below header */
+    margin-bottom: 100vh;
+  }
+
+  .work-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Adjust the gap between cards */
+  }
+
+  .work-info {
+    text-align: left;
+    margin-bottom: 20px; /* Adjust as needed */
+  }
+
+  .work-info h3 {
+    color: #d4d4d4;
+    margin-top: 0;
+    font-size: 1.5rem;
+  }
+
+  .work-info p {
+    margin-bottom: 10px;
+    color: #d4d4d4;
+  }
+
+  .work-card {
+    width: 870px;
+    background-color: #3097e1;
+    border-radius: 20px;
+    padding: 50px 50px 0 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 300px;
+  }
+
+  .work-card img {
+    width: 100%;
+    height: auto;
+    margin-bottom: -7px;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .about-me h2 {
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    margin-bottom: 30px;
+    margin-left: 80px;
+    font-size: 1.5rem;
+    color: #f0f0f0;
+    line-height: 1.1;
+    text-align: left;
+  }
+
+  .contact h2 {
+    font-weight: bold;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    color: #f0f0f0;
+    line-height: 1.1;
+    text-align: left;
+  }
+  .myworks h2 {
+    font-weight: bold;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    color: #f0f0f0;
+    line-height: 1.1;
+    text-align: left;
+  }
+
+  .about-me h2 span {
+    color: #ffd60a;
+  }
+  .about-me h2 span1 {
+    color: #f0f0f0;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .about-me p {
+    width: 450px;
+    margin-bottom: 40px;
+    margin-left: 80px;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.9rem;
+    color: #d4d4d4;
+    text-align: left;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 15px 40px;
+    border: 2px solid #ffd60a;
+    border-radius: 100px;
+    color: #d4d4d4;
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.8s;
+    overflow: hidden;
+    text-decoration: none;
+    position: relative;
+    margin-left: -285px;
+  }
+
+  .btn1 {
+    color: #181818;
+  }
+
+  .btn1:hover {
+    color: #ffffff;
+  }
+
+  .btn::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: #ffd60a;
+    z-index: -1;
+    transition: 0.8s;
+  }
+
+  .btn1::before {
+    top: 0;
+    border-radius: 0 0 50% 50%;
+  }
+
+  .btn1::before {
+    height: 180%;
+  }
+
+  .btn1:hover::before {
+    height: 0%;
+  }
+
+  footer {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 1rem;
+  }
+
+  /* Add this CSS to your existing styles */
+
+  .skills {
+    text-align: center;
+    margin-top: 100px;
+  }
+
+  .skills h2 {
+    margin-bottom: 40px;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    gap: 50px;
+  }
+
+  .skill {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .skill-icon {
+    width: 200px;
+    height: 50px;
+    border: 2px solid #ffd60a;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    color: #d4d4d4;
+  }
+}
